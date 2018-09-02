@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      label 'ansible'
+      label 'ansible-docker-test'
       defaultContainer 'ansible'
       yamlFile 'KubernetesPod.yml'
     }
