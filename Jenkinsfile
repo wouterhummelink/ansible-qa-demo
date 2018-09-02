@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Prepare') {
       steps {
-        sh 'ln -s ${WORKSPACE} testrole'
+        sh 'ln -s ${WORKSPACE} molecule/default/testrole'
       }
     }
     stage('molecule dependency') {
