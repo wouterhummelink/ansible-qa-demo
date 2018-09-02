@@ -5,6 +5,9 @@ metadata:
   labels: 
     app: jenkins-molecule-slave
 spec:
+  securityContext:
+    runAsUser: 10000
+    fsGroup: 10000
   containers:
   - name: jnlp
     image: nexus.lab.wfhdesign.nl/jenkins-slave
