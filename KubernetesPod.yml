@@ -9,14 +9,14 @@ spec:
     runAsUser: 10000
     fsGroup: 10000
   containers:
-  - name: jnlp
-    image: nexus.lab.wfhdesign.nl/jenkins-slave
-    tty: true
-  - name: ansible
-    image: nexus.lab.wfhdesign.nl/ansible
-    command:
-    - cat
+    - name: jnlp
+      image: nexus.lab.wfhdesign.nl/jenkins-slave
+      tty: true
+    - name: ansible
+      image: nexus.lab.wfhdesign.nl/ansible
+      command:
+        - cat
     tty: true
   imagePullSecrets:
-  - name: nexus-auth
+    - name: nexus-auth
 
