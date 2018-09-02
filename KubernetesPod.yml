@@ -16,7 +16,7 @@ spec:
       image: nexus.lab.wfhdesign.nl/ansible
       command:
         - cat
-    tty: true
+      tty: true
   imagePullSecrets:
     - name: nexus-auth
 
