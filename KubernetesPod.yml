@@ -10,6 +10,9 @@ spec:
     image: nexus.lab.wfhdesign.nl/jenkins-slave
   - name: ansible
     image: nexus.lab.wfhdesign.nl/ansible
+    command:
+    - cat
+    tty: true
   imagePullSecrets:
   - name: nexus-auth
 

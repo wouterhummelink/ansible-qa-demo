@@ -1,6 +1,7 @@
 pipeline {
   agent {
     kubernetes {
+      label 'molecule-ansible'
       defaultContainer 'ansible'
       yamlFile 'KubernetesPod.yml'
     }
