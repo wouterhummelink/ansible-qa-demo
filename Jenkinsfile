@@ -31,7 +31,16 @@ pipeline {
     }
     stage('molecule create') {
       steps {
-        sh '#molecule create'
+        sshagent (credentials: ['qemu']) {
+          sh 'molecule create'
+        }
+      }
+    }
+  }
+  post {
+    always {
+      sshagent (credentials: ['qemu']) {
+        sh 'molecule destroy'
       }
     }
   }
