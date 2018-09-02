@@ -2,7 +2,8 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  labels: jenkins-molecule-slave
+  labels: 
+    app: jenkins-molecule-slave
 spec:
   containers:
   - name: jnlp
