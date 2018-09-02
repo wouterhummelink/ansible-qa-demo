@@ -8,8 +8,6 @@ spec:
   containers:
   - name: jnlp
     image: nexus.lab.wfhdesign.nl/jenkins-slave
-    command:
-    - cat
     tty: true
   - name: ansible
     image: nexus.lab.wfhdesign.nl/ansible
