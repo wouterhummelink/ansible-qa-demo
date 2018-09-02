@@ -12,8 +12,15 @@ pipeline {
         sh 'molecule dependency'
       }
     }
+    stage('molecule lint') {
+      steps {
+        sh 'molecule lint'
+      }
+    }
     stage('molecule syntax') {
       steps {
+        sh 'env' 
+        sh 'ls -lR'
         sh 'molecule syntax'
       }
     }
