@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels: jenkins-molecule-slave
+spec:
+  containers:
+  - name: jnlp
+    image: nexus.lab.wfhdesign.nl/jenkins-slave
+  - name: ansible
+    image: nexus.lab.wfhdesign.nl/ansible
+  imagePullSecrets:
+  - name: nexus-auth
+
