@@ -32,7 +32,7 @@ pipeline {
     stage('molecule create') {
       steps {
         sshagent (credentials: ['qemu']) {
-          sh 'molecule create'
+          sh 'molecule --debug create'
         }
       }
     }
@@ -40,7 +40,7 @@ pipeline {
   post {
     always {
       sshagent (credentials: ['qemu']) {
-        sh 'molecule destroy'
+        sh 'molecule --debug destroy'
       }
     }
   }
