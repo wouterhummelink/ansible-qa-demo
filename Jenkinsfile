@@ -10,6 +10,8 @@ pipeline {
     stage('Prepare') {
       steps {
         sh 'ln -s ${WORKSPACE} molecule/default/testrole'
+        sh 'if [ ! -d ~/.ssh ]; then mkdir ~/.ssh && chmod 700 ~/.ssh; fi'
+        sh 'ssh-keyscan 192.168.122.1 > ~/.ssh/known_hosts'
       }
     }
     stage('molecule dependency') {

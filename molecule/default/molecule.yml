@@ -11,8 +11,7 @@ platforms:
   - name: instance
     box: centos/7
     provider_options:
-      driver: kvm
-      uri: qemu+ssh://wouterhummelink@192.168.122.1/system
+      uri: '"qemu+ssh://wouterhummelink@192.168.122.1/system"'
 provisioner:
   name: ansible
   lint:
