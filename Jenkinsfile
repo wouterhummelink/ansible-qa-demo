@@ -1,9 +1,25 @@
 pipeline {
-  agent any
+  agent {
+    kubernetes {
+      label 'ansible'
+      defaultContainer 'ansible'
+      yamlFile 'KubernetesPod.yml'
+    }
+  }
   stages {
-    stage('molecule') {
+    stage('molecule dependency') {
       steps {
-        sh 'molecule create'
+        sh 'molecule dependency'
+      }
+    }
+    stage('molecule syntax') {
+      steps {
+        sh 'molecule syntax'
+      }
+    }
+    stage('molecule create') {
+      steps {
+        sh '#molecule create'
       }
     }
   }
