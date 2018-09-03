@@ -36,15 +36,30 @@ pipeline {
     stage('molecule create') {
       steps {
         sshagent (credentials: ['qemu']) {
-          sh 'molecule --debug create'
+          sh 'molecule create'
         }
+      }
+    }
+    stage('molecule converge') {
+      steps {
+        sh 'molecule converge'
+      }
+    }
+    stage('molecule idempotence') {
+      steps {
+        sh 'molecule idempotence'
+      }
+    }
+    stage('molecule verify') {
+      steps {
+        sh 'molecule verify'
       }
     }
   }
   post {
     always {
       sshagent (credentials: ['qemu']) {
-        sh 'molecule --debug destroy'
+        sh 'molecule destroy'
       }
     }
   }
