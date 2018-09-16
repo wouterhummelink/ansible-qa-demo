@@ -6,6 +6,9 @@ pipeline {
       yamlFile 'KubernetesPod.yml'
     }
   }
+  options {
+    ansiColor('xterm')
+  }
   stages {
     stage('Prepare') {
       steps {
@@ -58,8 +61,10 @@ pipeline {
   }
   post {
     failure {
-      fileExists('/tmp/molecule/ansible-qa-demo/default/vagrant-instance.err') {
-        sh 'cat /tmp/molecule/ansible-qa-demo/default/vagrant-instance.err'
+      script {
+        if (fileExists('/tmp/molecule/ansible-qa-demo/default/vagrant-instance.err')) {
+          sh 'cat /tmp/molecule/ansible-qa-demo/default/vagrant-instance.err'
+        }
       }
     }
     always {
